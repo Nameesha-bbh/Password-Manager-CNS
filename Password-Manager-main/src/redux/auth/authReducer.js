@@ -1,6 +1,7 @@
 const initialState = {
     loggedIn: false,
-    id: ""
+    id: "",
+    token: ""
 }
 
 const authReducer = (state=initialState, action) => {
@@ -8,7 +9,8 @@ const authReducer = (state=initialState, action) => {
         case "LOG_IN": return{
             ...state,
             loggedIn: true,
-            id: action.payload.payload.data.userWithToken._id
+            id: action.payload.payload.data.userWithToken._id,
+            token: action.payload.payload.data.userWithToken.token
         }
 
         case "LOG_OUT": return {

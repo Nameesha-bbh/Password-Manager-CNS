@@ -14,8 +14,12 @@ function Register() {
 
   const register = (e) => {
     e.preventDefault();
+    var passw = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
     if(password != confirmPassword){
       alert("The passwords didn't match. Try again.")
+    }
+    else if(!password.match(passw)){
+        alert("The password's length must be between 7-15 characters and it must contain characters, numbers, special characters")
     }
     else{
 
